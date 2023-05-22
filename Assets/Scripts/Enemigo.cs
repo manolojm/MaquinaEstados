@@ -55,6 +55,9 @@ public class Enemigo : MonoBehaviour {
         if (Vector3.Angle(playerVector.normalized, head.forward) < visionAngle * 0.5) { 
             if (playerVector.magnitude < visionDistance) {
                 detected = true;
+
+                // Si detecta al jugador lo persigue
+                agent.destination = jugador.position;
             }
         }
     }
@@ -70,7 +73,12 @@ public class Enemigo : MonoBehaviour {
         p1 = PointForAngle(halfVisionAngle, visionDistance);
         p2 = PointForAngle(-halfVisionAngle, visionDistance);
 
-        Gizmos.color = detected ? Color.green : Color.red;
+        if (detected) {
+            Gizmos.color = Color.green;
+        } else {
+            Gizmos.color = Color.red;
+        }
+        
         Gizmos.DrawLine(head.position, (Vector2)head.position + p1);
         Gizmos.DrawLine(head.position, (Vector2)head.position + p2);
 
