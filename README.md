@@ -2,7 +2,7 @@
 
 - - -
 
-**Descripción**: Máquina de estados 
+**Descripción**: Recolecta todos los cubos en el menos tiempo posible. ¡Ten cuidado! Habrá varios enemigos en el escenario que te atacaran si eres detectado. 
 
 - - -
 
