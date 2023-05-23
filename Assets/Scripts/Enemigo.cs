@@ -50,14 +50,23 @@ public class Enemigo : MonoBehaviour {
             GotoNextPoint();
         }
 
+        var figura = head.GetComponent<Renderer>();
+        figura.material.SetColor("_Color", Color.red);
         detected = false;
+
         Vector3 playerVector = jugador.position - head.position;
         if (Vector3.Angle(playerVector.normalized, head.forward) < visionAngle * 0.5) { 
             if (playerVector.magnitude < visionDistance) {
                 detected = true;
 
                 // Si detecta al jugador lo persigue
+                figura.material.SetColor("_Color", Color.cyan);
                 agent.destination = jugador.position;
+
+                // Si está muy cerca, lo ataca
+                if (playerVector.magnitude < 3) {
+                    figura.material.SetColor("_Color", Color.blue);
+                }
             }
         }
     }
