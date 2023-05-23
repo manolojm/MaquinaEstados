@@ -1,8 +1,8 @@
-# Patrulla
+# Máquina de estados
 
 - - -
 
-**Descripción**: Versión multijugador del clásico juego pilla-pilla  
+**Descripción**: Máquina de estados 
 
 - - -
 
